@@ -7,7 +7,7 @@ from src.table_builders import HtmlTableBuilder, CsvTableBuilder, ConsoleTableBu
 
 
 def run():
-    json_object = json.loads(Path('data/gamers.json').read_text(encoding='utf8'))
+    json_object = json.loads(Path('../langames/data/gamers.json').read_text(encoding='utf8'))
     print(f"Read information about {len(json_object['gamers'])} LAN gamers.")
     ans = input("""I'm ready to analyze that data, but first, what output format do you want?
     1. HTML (will open in browser)
@@ -18,7 +18,7 @@ Your choice: """)
         table_builder = HtmlTableBuilder()
         analyze(json_object, table_builder)
         html_content = table_builder.get_html()
-        p = Path("data") / "output.html"
+        p = Path("../langames/data") / "output.html"
         p.write_text(html_content, encoding='utf8')
         print(f"Opening {p} in your default web browser...")
         webbrowser.open(str(p))
@@ -26,7 +26,7 @@ Your choice: """)
         table_builder = CsvTableBuilder()
         analyze(json_object, table_builder)
         csv_string = table_builder.get_csv_text()
-        p = Path("data") / "output.csv"
+        p = Path("../langames/data") / "output.csv"
         p.write_text(csv_string, encoding='utf8')
         print(f"The CSV file has been written to {p}.")
     elif ans == "3":

@@ -53,20 +53,20 @@ class ConsoleTableBuilder:
         return result + "\n"
 
 
-# TODO: implement this class by filling in the methods
 # Hint 1: look at test in test_tablebuilders.py for expected behaviour!
 # Hint 2: CSV stands for comma-separated-values
 class CsvTableBuilder:
     """Produces an output string with comma separated values to written to file"""
 
     def __init__(self):
-        pass
+        self.row = []
 
     def set_headers(self, column_headers):
-        pass
+        self.header = ",".join(column_headers)
 
     def add_row(self, cells):
-        pass
+        self.row.append(",".join(cells))
 
     def get_csv_text(self):
-        pass
+        cell_string = "\n".join(self.row)
+        return self.header + "\n" + cell_string
