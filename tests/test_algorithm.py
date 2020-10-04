@@ -31,4 +31,7 @@ def test_dummy_gamers():
     assert expected == got
 
 
+def test_find_games():
+
+
 
