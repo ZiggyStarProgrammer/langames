@@ -9,6 +9,7 @@ def test_find_conclusion_no_one_owns_game_means_red():
     assert conclusion(['not owned', 'not owned']) == 'RED'
 
 
+
 def test_find_conclusion_no_one_installed_game_means_yellow():
     assert conclusion(['not installed', 'not installed']) == 'YELLOW'
 
@@ -29,9 +30,3 @@ def test_dummy_gamers():
     got = find_gamers(data)
     expected = {"Larry", "Hasse"}
     assert expected == got
-
-
-def test_find_games():
-
-
-
