@@ -7,7 +7,7 @@ from src.table_builders import HtmlTableBuilder, CsvTableBuilder, ConsoleTableBu
 
 
 def run():
-    json_object = json.loads(Path('../langames/data/gamers.json').read_text(encoding='utf8'))
+    json_object = json.loads(Path('data/gamers.json').read_text(encoding='utf8'))
     print(f"Read information about {len(json_object['gamers'])} LAN gamers.")
     ans = input("""I'm ready to analyze that data, but first, what output format do you want?
     1. HTML (will open in browser)
