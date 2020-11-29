@@ -14,11 +14,12 @@ def run():
     2. CSV (you may open in Excel e.g)
     3. Console (display it here)
 Your choice: """)
+    path = Path("../langames/data")
     if ans == "1":
         table_builder = HtmlTableBuilder()
         analyze(json_object, table_builder)
         html_content = table_builder.get_html()
-        p = Path("../langames/data") / "output.html"
+        p = path / "output.html"
         p.write_text(html_content, encoding='utf8')
         print(f"Opening {p} in your default web browser...")
         webbrowser.open(str(p))
@@ -26,7 +27,7 @@ Your choice: """)
         table_builder = CsvTableBuilder()
         analyze(json_object, table_builder)
         csv_string = table_builder.get_csv_text()
-        p = Path("../langames/data") / "output.csv"
+        p = path / "output.csv"
         p.write_text(csv_string, encoding='utf8')
         print(f"The CSV file has been written to {p}.")
     elif ans == "3":
